@@ -1,0 +1,158 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:14-alpine # Use a specific version and Alpine for smaller image
+    container_name: voting_postgres
+    restart: unless-stopped # Restart if container fails
+    ports:
+      - "5432:5432" # Map host port 5432 to container port 5432
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-voting} # Use default voting_db if not set in .env
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist database data
+      # Optional: Mount custom initialization scripts
+      # - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql # Initial schema or data
+
+  # RabbitMQ Message Broker
+  rabbitmq:
+    image: rabbitmq:3.11-management-alpine # Use management image for web UI (http://localhost:15672)
+    container_name: voting_rabbitmq
+    restart: always
+    ports:
+      - "5672:5672" # Standard AMQP port
+      - "15672:15672" # Management UI port
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER:-guest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS:-guest}
+      RABBITMQ_HEARTBEAT: 60
+      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: "-rabbit_heartbeat 60"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq/
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_running"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  # Redis Cache and Data Store
+  redis:
+    image: redis:7-alpine # Use Alpine for smaller image
+    container_name: voting_redis
+    # restart: always
+    ports:
+      - "6379:6379" # Standard Redis port
+    volumes:
+      - redis_data:/data # Persist Redis data (optional, depends on usage)
+    command: redis-server --appendonly yes # Enable persistence (optional)
+    # Health check (optional)
+    # healthcheck:
+    #   test: ["CMD", "redis-cli", "ping"]
+    #   interval: 5s
+    #   timeout: 3s
+    #   retries: 5
+
+
+  # FastAPI Backend API
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    container_name: voting_api
+    # restart: always
+    ports:
+      - "8000:8000" # Map host port 8000 to container port 8000 (for uvicorn/gunicorn)
+    depends_on:
+      # services_healthy: # Use services_healthy if healthchecks are defined
+      #  postgres:
+      #    condition: service_healthy
+      #  rabbitmq:
+      #    condition: service_healthy
+      #  redis:
+      #    condition: service_healthy
+      # Basic dependency (waits for containers to start, not necessarily healthy)
+      - postgres
+      - rabbitmq
+      - redis
+    environment:
+      # Pass environment variables for service connectivity from your host environment or .env file
+      # These map to variables defined in api/core/config.py
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-voting}
+      RABBITMQ_URL: amqp://${RABBITMQ_DEFAULT_USER:-guest}:${RABBITMQ_DEFAULT_PASS:-guest}@rabbitmq:5672/
+      RABBITMQ_QUEUE_NAME: ${RABBITMQ_QUEUE_NAME:-votes}
+      RABBITMQ_DLX_EXCHANGE: ${RABBITMQ_DLX_EXCHANGE:-vote_dlx}
+      RABBITMQ_DLQ_QUEUE: ${RABBITMQ_DLQ_QUEUE:-vote_dlq}
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-your-secret-key-here} # IMPORTANT: Generate a strong unique key
+      JWT_ALGORITHM: ${JWT_ALGORITHM:-HS256}
+      RESULTS_CACHE_TTL_SECONDS: ${RESULTS_CACHE_TTL_SECONDS:-60}
+      CORS_ORIGINS: http://localhost:5174,http://127.0.0.1:5174
+      CORS_METHODS: GET,POST,PUT,DELETE,OPTIONS
+      CORS_HEADERS: Content-Type,Authorization
+      # Worker-specific settings are not needed here
+
+    # Mount .env file if you prefer passing variables that way
+    # Be cautious with sensitive data in .env files checked into version control!
+    # If using secrets, consider Docker Secrets or Kubernetes Secrets.
+    # volumes:
+    #   - ./.env:/app/.env # Mount local .env file into container
+
+  # Vote Processing Worker
+  worker:
+    build:
+      context: .
+      dockerfile: workers/Dockerfile
+    container_name: voting_worker
+    # restart: always
+    depends_on:
+      # services_healthy: # Use services_healthy if healthchecks are defined
+      #  postgres:
+      #    condition: service_healthy
+      #  rabbitmq:
+      #    condition: service_healthy
+      # Basic dependency
+      - postgres
+      - rabbitmq
+      - redis # Worker also connects to Redis
+    environment:
+      # Pass environment variables for service connectivity
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-voting}
+      RABBITMQ_URL: amqp://${RABBITMQ_DEFAULT_USER:-guest}:${RABBITMQ_DEFAULT_PASS:-guest}@rabbitmq:5672/
+      RABBITMQ_QUEUE_NAME: ${RABBITMQ_QUEUE_NAME:-votes}
+      RABBITMQ_DLX_EXCHANGE: ${RABBITMQ_DLX_EXCHANGE:-vote_dlx}
+      RABBITMQ_DLQ_QUEUE: ${RABBITMQ_DLQ_QUEUE:-vote_dlq}
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-your-secret-key-here} # Needed to decode user_token
+      JWT_ALGORITHM: ${JWT_ALGORITHM:-HS256}
+      WORKER_RECONNECT_DELAY_SECONDS: ${WORKER_RECONNECT_DELAY_SECONDS:-5} # Pass worker specific setting
+
+    # volumes:
+    #   - ./.env:/app/.env # Mount local .env file
+
+  # Frontend Application
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: voting_frontend
+    ports:
+      - "5174:5174"
+    environment:
+      - VITE_API_URL=http://localhost:8000/api/v1
+    depends_on:
+      - api
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+# Define named volumes for data persistence
+volumes:
+  postgres_data:
+  rabbitmq_data:
+  redis_data:
+

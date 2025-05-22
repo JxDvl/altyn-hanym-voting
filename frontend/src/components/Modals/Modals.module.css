@@ -1,0 +1,140 @@
+.modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(58, 33, 8, 0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  background: var(--gradient-bg);
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(58, 33, 8, 0.3);
+  border: 1px solid var(--primary-color);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.close:hover {
+  color: var(--text-light);
+}
+
+.socialGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.socialBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.socialBtn.facebook {
+  background-color: #3b5998;
+  color: white;
+}
+
+.socialBtn.google {
+  background-color: #db4437;
+  color: white;
+}
+
+.socialBtn.vk {
+  background-color: #4a76a8;
+  color: white;
+}
+
+.socialBtn.instagram {
+  background-color: #E1306C;
+  color: white;
+}
+
+.socialBtn.apple {
+  background-color: #222;
+  color: white;
+}
+
+.socialBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.voteBlock {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.voteBlock img {
+  width: 100px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+}
+
+.warning {
+  color: #8B4513;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.cancel {
+  background-color: #aaa;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.confirm {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.cancel:hover {
+  background-color: #999;
+}
+
+.confirm:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+}

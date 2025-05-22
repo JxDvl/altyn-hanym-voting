@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алтын Ханым - Голосование</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles/styleLight.css">
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <img src="assets/logo.svg" alt="Алтын Ханым" class="logo-image">
+        <!-- <div>
+          <h1>Алтын Ханым</h1>
+          <span class="subtitle">ГОЛОСОВАНИЕ</span>
+        </div> -->
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" id="homeLink">Главная</a></li>
+          <li><a href="#about" id="aboutLink">О конкурсе</a></li>
+          <li><a href="#contestants" id="contestantsLink">Участницы</a></li>
+          <li><a href="#results" id="resultsLink">Результаты</a></li>
+        </ul>
+      </nav>
+      <button class="login-btn" onclick="openLoginModal()">
+        <i class="fas fa-user"></i> Войти
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-decor">
+      <span class="circle circle1"></span>
+      <span class="circle circle2"></span>
+      <span class="circle circle3"></span>
+      <span class="sparkle sparkle1"></span>
+      <span class="sparkle sparkle2"></span>
+      <span class="sparkle sparkle3"></span>
+      <span class="sparkle sparkle4"></span>
+      <span class="sparkle sparkle5"></span>
+    </div>
+    <div class="container">
+      <h1>ВЕДУЩИЙ КОНКУРС КРАСОТЫ</h1>
+      <h2>Алтын Ханым 2025</h2>
+      <p>Голосуйте за самую красивую и талантливую участницу конкурса. Ваш голос имеет значение!</p>
+      <a href="#contestants" class="cta-button">Голосовать сейчас</a>
+    </div>
+  </section>
+  <!-- О конкурсе
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>О конкурсе</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Конкурс красоты и таланта "Алтын Ханым" - это престижное событие, которое ежегодно собирает самых выдающихся представительниц нашего общества. Участницы демонстрируют не только свою красоту, но и интеллект, таланты и творческие способности.</p>
+          <p>В 2025 году конкурс проходит под девизом "Красота во имя добра", где каждая участница представляет благотворительный проект, который она планирует реализовать в случае победы.</p>
+          <p>Голосование открыто для всех желающих. Один пользователь может отдать только один голос за одну участницу. Ваш выбор поможет определить, кто достоин носить титул "Алтын Ханым 2025".</p>
+        </div>
+        <div class="about-image">
+          <img src="https://via.placeholder.com/500x300" alt="О конкурсе Алтын Ханым">
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+  <section id="contestants" class="contestants-section">
+    <div class="container">
+      <h2>Участницы конкурса</h2>
+      <div class="contestants-grid">
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 1">
+            <div class="contestant-number">1</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Алия Мырзахметова</h3>
+            <p>24 года, Астана</p>
+            <button class="vote-btn" data-id="1" data-name="Алия Мырзахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4123</span> человек</div>
+          </div>
+        </div>
+        
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 2">
+            <div class="contestant-number">2</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Динара Ержанова</h3>
+            <p>22 года, Алматы</p>
+            <button class="vote-btn" data-id="2" data-name="Динара Ержанова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">3789</span> человек</div>
+          </div>
+        </div>
+        
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 3">
+            <div class="contestant-number">3</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Сауле Нуркенова</h3>
+            <p>26 лет, Шымкент</p>
+            <button class="vote-btn" data-id="3" data-name="Сауле Нуркенова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">5012</span> человек</div>
+          </div>
+        </div>
+        
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 4">
+            <div class="contestant-number">4</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Гульнара Токаева</h3>
+            <p>23 года, Караганда</p>
+            <button class="vote-btn" data-id="4" data-name="Гульнара Токаева" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">2890</span> человек</div>
+          </div>
+        </div>
+        
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 5">
+            <div class="contestant-number">5</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Айгерим Сатпаева</h3>
+            <p>25 лет, Атырау</p>
+            <button class="vote-btn" data-id="5" data-name="Айгерим Сатпаева" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">3157</span> человек</div>
+          </div>
+        </div>
+        
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 6">
+            <div class="contestant-number">6</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Жанна Искакова</h3>
+            <p>21 год, Усть-Каменогорск</p>
+            <button class="vote-btn" data-id="6" data-name="Жанна Искакова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">1987</span> человек</div>
+          </div>
+        </div>
+        
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="assets/female21.jpg" alt="Участница 7">
+            <div class="contestant-number">21</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Жанар Асқарқызы</h3>
+            <p>32 года, предприниматель</p>
+            <button class="vote-btn" data-id="7" data-name="Диляра Ақшараева" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">4231</span> человек</div>
+          </div>
+        </div>
+        
+        <div class="contestant-card">
+          <div class="contestant-image">
+            <img src="https://via.placeholder.com/400x600" alt="Участница 8">
+            <div class="contestant-number">8</div>
+          </div>
+          <div class="contestant-info">
+            <h3>Мадина Ахметова</h3>
+            <p>24 года, Кызылорда</p>
+            <button class="vote-btn" data-id="8" data-name="Мадина Ахметова" onclick="openVoteConfirmModal(this)">Голосовать</button>
+            <div class="contestant-results">Проголосовало: <span class="votes-count">3675</span> человек</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>Алтын Ханым</h2>
+          <p>Ежегодный конкурс красоты</p>
+        </div>
+        <div class="footer-links">
+          <h3>Быстрые ссылки</h3>
+          <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#about">О конкурсе</a></li>
+            <li><a href="#contestants">Участницы</a></li>
+            <li><a href="#results">Результаты</a></li>
+            <li><a href="#">Правила голосования</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Связаться с нами</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-vk"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Алтын Ханым. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальное окно логина -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+      <h2>Авторизация</h2>
+      <p>Пожалуйста, авторизуйтесь через одну из социальных сетей, чтобы проголосовать за участницу:</p>
+      <div class="social-login">
+        <button class="social-btn google">
+          <i class="fab fa-google"></i> Войти через Google
+        </button>
+        <button class="social-btn apple">
+          <i class="fab fa-apple"></i> Войти через Apple ID
+        </button>
+        <button class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i> Войти через Facebook
+        </button>
+        <button class="social-btn instagram">
+          <i class="fab fa-instagram"></i> Войти через Instagram
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно подтверждения голосования -->
+  <div id="voteConfirmModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeVoteConfirmModal()">&times;</span>
+      <h2>Подтверждение голосования</h2>
+      <div class="vote-confirm-content">
+        <p>Вы собираетесь проголосовать за:</p>
+        <div class="selected-contestant">
+          <img id="selectedContestantImage" src="https://via.placeholder.com/100x100" alt="Выбранная участница">
+          <div>
+            <h3 id="selectedContestantName">Имя участницы</h3>
+            <p>№<span id="selectedContestantId"></span></p>
+          </div>
+        </div>
+        <p class="vote-warning">Внимание! Вы можете голосовать только один раз за всё время конкурса. Изменить свой выбор после подтверждения будет невозможно.</p>
+        <div class="vote-actions">
+          <button class="cancel-btn" onclick="closeVoteConfirmModal()">Отменить</button>
+          <button class="confirm-btn" onclick="confirmVote()">Подтвердить голос</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Админ панель (скрыта по умолчанию) -->
+  <div id="adminPanel" class="admin-panel">
+    <div class="admin-header">
+      <h2>Панель администратора</h2>
+      <button class="logout-btn" onclick="closeAdminPanel()">Выйти</button>
+    </div>
+    <div class="admin-content">
+      <div class="admin-sidebar">
+        <ul>
+          <li class="active"><a href="#" onclick="switchAdminTab('dashboard')">Дашборд</a></li>
+          <li><a href="#" onclick="switchAdminTab('contestants')">Участницы</a></li>
+          <li><a href="#" onclick="switchAdminTab('votes')">Голоса</a></li>
+          <li><a href="#" onclick="switchAdminTab('settings')">Настройки</a></li>
+        </ul>
+      </div>
+      <div class="admin-main">
+        <!-- Дашборд -->
+        <div id="dashboardTab" class="admin-tab" style="display: block;">
+          <h3>Статистика конкурса</h3>
+          <div class="admin-stats">
+            <div class="stat-card">
+              <h4>Всего голосов</h4>
+              <div class="stat-value">12,458</div>
+            </div>
+            <div class="stat-card">
+              <h4>Участниц</h4>
+              <div class="stat-value">8</div>
+            </div>
+            <div class="stat-card">
+              <h4>Дней до завершения</h4>
+              <div class="stat-value">14</div>
+            </div>
+            <div class="stat-card">
+              <h4>Голосов сегодня</h4>
+              <div class="stat-value">743</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Участницы -->
+        <div id="contestantsTab" class="admin-tab">
+          <h3>Управление участницами</h3>
+          <!-- Здесь будет контент для управления участницами -->
+        </div>
+        
+        <!-- Голоса -->
+        <div id="votesTab" class="admin-tab">
+          <h3>Статистика голосования</h3>
+          <!-- Здесь будет контент для статистики голосования -->
+        </div>
+        
+        <!-- Настройки -->
+        <div id="settingsTab" class="admin-tab">
+          <h3>Настройки конкурса</h3>
+          <!-- Здесь будет контент для настроек конкурса -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openLoginModal() {
+      document.getElementById('loginModal').style.display = 'flex';
+    }
+    
+    function closeLoginModal() {
+      document.getElementById('loginModal').style.display = 'none';
+    }
+    
+    function highlightActiveSection() {
+      const sections = ['home', 'about', 'contestants', 'results'];
+      let currentSectionId = null;
+      let maxVisiblePercent = 0;
+      const viewportHeight = window.innerHeight;
+      
+      for (const sectionId of sections) {
+        const section = document.getElementById(sectionId);
+        if (!section) continue;
+        
+        const rect = section.getBoundingClientRect();
+        
+        const top = Math.max(0, rect.top);
+        const bottom = Math.min(viewportHeight, rect.bottom);
+        let visibleHeight = Math.max(0, bottom - top);
+        
+        const visiblePercent = (visibleHeight / viewportHeight) * 100;
+        
+        if (visiblePercent > maxVisiblePercent) {
+          maxVisiblePercent = visiblePercent;
+          currentSectionId = sectionId;
+        }
+      }
+      
+      if (maxVisiblePercent < 65) {
+        let minDistance = Infinity;
+        const scrollMid = window.scrollY + (viewportHeight / 2);
+        
+        for (const sectionId of sections) {
+          const section = document.getElementById(sectionId);
+          if (!section) continue;
+          
+          const rect = section.getBoundingClientRect();
+          const sectionMiddle = window.scrollY + rect.top + (rect.height / 2);
+          const distance = Math.abs(sectionMiddle - scrollMid);
+          
+          if (distance < minDistance) {
+            minDistance = distance;
+            currentSectionId = sectionId;
+          }
+        }
+      }
+      
+      if (!currentSectionId) {
+        currentSectionId = 'home';
+      }
+      
+      const navLinks = document.querySelectorAll('nav ul li a');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        
+        if (link.getAttribute('href') === '#' + currentSectionId) {
+          link.classList.add('active');
+        }
+      });
+      
+      // Для отладки
+      // console.log(`Активная секция: ${currentSectionId}, видимость: ${maxVisiblePercent.toFixed(2)}%`);
+    }
+    
+    window.addEventListener('scroll', highlightActiveSection);
+    window.addEventListener('load', highlightActiveSection);
+    
+    function openVoteConfirmModal(button) {
+      const contestantId = button.getAttribute('data-id');
+      const contestantName = button.getAttribute('data-name');
+      const contestantImage = button.closest('.contestant-card').querySelector('.contestant-image img').src;
+      
+      document.getElementById('selectedContestantId').textContent = contestantId;
+      document.getElementById('selectedContestantName').textContent = contestantName;
+      document.getElementById('selectedContestantImage').src = contestantImage;
+      
+      document.getElementById('voteConfirmModal').style.display = 'flex';
+    }
+    
+    function closeVoteConfirmModal() {
+      document.getElementById('voteConfirmModal').style.display = 'none';
+    }
+    
+    function confirmVote() {
+      alert('Ваш голос принят! Спасибо за участие в голосовании.');
+      closeVoteConfirmModal();
+    }
+    
+    function openAdminPanel() {
+      document.getElementById('adminPanel').style.display = 'block';
+    }
+    
+    function closeAdminPanel() {
+      document.getElementById('adminPanel').style.display = 'none';
+    }
+    
+    function switchAdminTab(tabName) {
+      const tabs = document.querySelectorAll('.admin-tab');
+      tabs.forEach(tab => {
+        tab.style.display = 'none';
+      });
+      
+      document.getElementById(tabName + 'Tab').style.display = 'block';
+      
+      const sidebarItems = document.querySelectorAll('.admin-sidebar li');
+      sidebarItems.forEach(item => {
+        item.classList.remove('active');
+      });
+      event.currentTarget.parentElement.classList.add('active');
+    }
+  </script>
+</body>
+</html> 

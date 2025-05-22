@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.env
+.venv/
+venv/
+.env
+.env.*
+
+# Node.js
+node_modules/
+frontend/node_modules/
+
+# Build
+frontend/dist/
+frontend/.vite/
+
+# Logs
+*.log
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# System
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Database
+*.sqlite3
+db.sqlite3
+
+# Coverage
+htmlcov/
+.coverage
+
+# Misc
+*.bak
+*.swp
+
+# Ignore local data
+frontend/.env.local
