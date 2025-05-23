@@ -24,8 +24,8 @@ export default function ContestantGrid({openVote}){
       <div className="container">
         <h2>Участницы конкурса</h2>
         <div className={styles.grid}>
-          {list.map((c,i)=>(
-            <ContestantCard key={c.candidate_id} data={c} number={i+1} onVote={openVote}/>
+          {list.map((c)=>(
+            <ContestantCard key={c.candidate_id} data={c} number={c.candidate_id} onVote={openVote}/>
           ))}
         </div>
       </div>

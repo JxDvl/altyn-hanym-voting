@@ -74,4 +74,3 @@ class Vote(Base):
     # Relationships (optional but good practice)
     user = relationship("User") # No backref needed if not querying votes from user model
     candidate = relationship("Candidate") # No backref needed if not querying votes from candidate model
-

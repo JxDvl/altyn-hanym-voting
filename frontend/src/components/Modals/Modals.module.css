@@ -99,6 +99,12 @@
   border: 2px solid var(--primary-color);
 }
 
+.voteBlock p {
+  white-space: pre-line;
+  line-height: 1.4;
+  margin: 5px 0;
+}
+
 .warning {
   color: #8B4513;
   margin: 20px 0;

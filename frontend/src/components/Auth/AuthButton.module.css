@@ -1,19 +1,38 @@
-.authButton {
-  padding: 10px 20px;
-  margin: 10px;
+.socialBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 5px;
-  background-color: #4CAF50;
-  color: white;
-  font-size: 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: var(--transition);
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.authButton:hover {
-  background-color: #45a049;
+.socialBtn.facebook {
+  background-color: #3b5998;
+  color: white;
 }
 
-.authButton:active {
-  background-color: #3d8b40;
+.socialBtn.google {
+  background-color: #db4437;
+  color: white;
+}
+
+.socialBtn.instagram {
+  background-color: #E1306C;
+  color: white;
+}
+
+.socialBtn.apple {
+  background-color: #222;
+  color: white;
+}
+
+.socialBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 } 

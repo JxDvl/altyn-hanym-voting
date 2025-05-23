@@ -1,0 +1,12 @@
+{
+  "name": "altyn-hanym-voting-system",
+  "version": "1.0.0",
+  "description": "Altyn Hanym Voting System",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "cd frontend && npm run dev"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 

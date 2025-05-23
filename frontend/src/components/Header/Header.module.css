@@ -85,8 +85,8 @@ nav a.active:after {
 
 .loginBtn {
   background-color: transparent;
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 1px solid #4d2a06;
+  color: #4d2a06;
   padding: 8px 15px;
   border-radius: 4px;
   font-weight: 600;
@@ -97,7 +97,7 @@ nav a.active:after {
 }
 
 .loginBtn:hover {
-  background-color: var(--primary-color);
+  background-color: #4d2a06;
   color: var(--accent-color);
 }
 

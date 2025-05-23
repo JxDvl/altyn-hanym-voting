@@ -2,7 +2,7 @@ import styles from './Modals.module.css';
 
 export default function VoteConfirmModal({data,onClose}){
   if(!data) return null;
-  const {candidate_id,name,img} = data;
+  const {candidate_id,name,description,img} = data;
 
   async function confirm(){
     try{
@@ -48,7 +48,7 @@ export default function VoteConfirmModal({data,onClose}){
           <img src={img} alt={name}/>
           <div>
             <h3>{name}</h3>
-            <p>№{candidate_id}</p>
+            <p>{description || `№${candidate_id}`}</p>
           </div>
         </div>
         <p className={styles.warning}>Внимание! Вы можете голосовать только один раз.</p>

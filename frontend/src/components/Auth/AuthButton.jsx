@@ -17,18 +17,46 @@ const AuthButton = ({ provider, onLogin }) => {
       
       const data = await response.json();
       localStorage.setItem('auth_token', data.token);
-      onLogin(data.token);
+      if (onLogin) onLogin(data.token);
     } catch (error) {
       console.error('Ошибка при авторизации:', error);
     }
   };
 
+  const getProviderConfig = (provider) => {
+    const configs = {
+      google: {
+        icon: 'fab fa-google',
+        text: 'Войти через Google',
+        className: 'google'
+      },
+      apple: {
+        icon: 'fab fa-apple',
+        text: 'Войти через Apple ID',
+        className: 'apple'
+      },
+      facebook: {
+        icon: 'fab fa-facebook-f',
+        text: 'Войти через Facebook',
+        className: 'facebook'
+      },
+      instagram: {
+        icon: 'fab fa-instagram',
+        text: 'Войти через Instagram',
+        className: 'instagram'
+      }
+    };
+    return configs[provider] || { icon: '', text: 'Войти', className: '' };
+  };
+
+  const config = getProviderConfig(provider);
+
   return (
     <button 
-      className={styles.authButton}
+      className={`${styles.socialBtn} ${styles[config.className]}`}
       onClick={handleClick}
     >
-      Войти через {provider.charAt(0).toUpperCase() + provider.slice(1)}
+      <i className={config.icon}></i> {config.text}
     </button>
   );
 };
