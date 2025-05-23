@@ -93,7 +93,8 @@
 }
 
 .voteBlock img {
-  width: 100px;
+  width: 150px;
+  height: 200px;
   border-radius: 4px;
   object-fit: cover;
   border: 2px solid var(--primary-color);
@@ -176,7 +177,8 @@
   }
 
   .voteBlock img {
-    width: 80px;
+    width: 120px;
+    height: 160px;
   }
 
   .voteBlock p {
@@ -216,14 +218,13 @@
   }
 
   .voteBlock {
-    flex-direction: column;
     gap: 10px;
     text-align: center;
   }
 
   .voteBlock img {
-    width: 60px;
-    align-self: center;
+    width: 100px;
+    height: 130px;
   }
 
   .voteBlock p {
