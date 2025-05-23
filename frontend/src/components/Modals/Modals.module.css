@@ -22,6 +22,19 @@
   border: 1px solid var(--primary-color);
 }
 
+.content h2 {
+  font-size: 22px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.content h3 {
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
 .close {
   position: absolute;
   top: 15px;
@@ -51,7 +64,7 @@
   border: none;
   border-radius: 4px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   transition: var(--transition);
 }
 
@@ -104,12 +117,14 @@
   white-space: pre-line;
   line-height: 1.4;
   margin: 5px 0;
+  font-size: 16px;
 }
 
 .warning {
   color: #8B4513;
   margin: 20px 0;
   font-style: italic;
+  font-size: 16px;
 }
 
 .actions {
@@ -154,6 +169,16 @@
     margin: 20px;
   }
 
+  .content h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .content h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
   .close {
     top: 10px;
     right: 10px;
@@ -167,7 +192,7 @@
 
   .socialBtn {
     padding: 10px;
-    font-size: 13px;
+    font-size: 15px;
     gap: 8px;
   }
 
@@ -182,12 +207,12 @@
   }
 
   .voteBlock p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .warning {
     margin: 15px 0;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .actions {
@@ -197,7 +222,7 @@
 
   .cancel, .confirm {
     padding: 8px 16px;
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 
@@ -208,13 +233,21 @@
     margin: 10px;
   }
 
+  .content h2 {
+    font-size: 18px;
+  }
+
+  .content h3 {
+    font-size: 15px;
+  }
+
   .close {
     font-size: 18px;
   }
 
   .socialBtn {
     padding: 8px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .voteBlock {
@@ -228,11 +261,11 @@
   }
 
   .voteBlock p {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .warning {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .actions {
@@ -242,6 +275,6 @@
 
   .cancel, .confirm {
     padding: 10px;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
