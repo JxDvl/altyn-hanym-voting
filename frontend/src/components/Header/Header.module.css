@@ -102,12 +102,78 @@ nav a.active:after {
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 10px 0;
+  }
+
   .headerContainer {
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
   }
-  
+
+  .logo {
+    width: auto;
+  }
+
+  .logoImage {
+    height: 40px;
+    transform: scale(1);
+  }
+
+  nav {
+    margin-left: 0;
+  }
+
   nav ul {
-    margin: 15px 0;
+    margin: 10px 0;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav li {
+    margin: 0 8px;
+  }
+
+  nav a {
+    font-size: 12px;
+    padding: 3px 0;
+  }
+
+  .loginBtn {
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 8px 0;
+  }
+
+  .headerContainer {
+    gap: 8px;
+  }
+
+  .logoImage {
+    height: 35px;
+  }
+
+  nav ul {
+    gap: 5px;
+  }
+
+  nav li {
+    margin: 0 5px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
+
+  .loginBtn {
+    padding: 5px 10px;
+    font-size: 11px;
   }
 }

@@ -113,3 +113,80 @@
 .count {
   color: var(--primary-color);
 }
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .image {
+    height: 200px;
+  }
+
+  .number {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    top: 8px;
+    left: 8px;
+  }
+
+  .info {
+    padding: 12px;
+  }
+
+  .info h3 {
+    font-size: 14px;
+    margin-bottom: 3px;
+  }
+
+  .info p {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .voteBtn {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .results {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .image {
+    height: 180px;
+  }
+
+  .info {
+    padding: 8px;
+  }
+
+  .info h3 {
+    font-size: 13px;
+  }
+
+  .info p {
+    font-size: 11px;
+  }
+
+  .voteBtn {
+    padding: 6px;
+    font-size: 11px;
+  }
+}

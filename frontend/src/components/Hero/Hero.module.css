@@ -19,3 +19,73 @@
 .hero p{font-size:18px;margin-bottom:30px;max-width:700px;margin-left:auto;margin-right:auto;color:var(--text-color)}
 .ctaButton{display:inline-block;background-color:var(--primary-color);color:var(--accent-color);font-weight:bold;padding:12px 30px;border-radius:4px;font-size:16px;letter-spacing:1px;text-transform:uppercase;margin-top:20px;text-decoration:none;transition:all 0.3s ease;cursor:pointer;box-shadow:0 0 20px rgba(58, 33, 8, 0.3);border:none;position:relative;z-index:2}
 .ctaButton:hover{background-color:var(--accent-color);color:var(--primary-color);transform:translateY(-3px);box-shadow:0 0 30px rgba(58, 33, 8, 0.4)}
+
+/* Мобильная адаптация Hero */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    padding: 20px 10px;
+  }
+
+  .hero h1 {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    max-width: 90%;
+    line-height: 1.4;
+  }
+
+  .ctaButton {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  /* Уменьшаем декоративные элементы */
+  .circle1 { width: 100px; height: 100px; }
+  .circle2 { width: 70px; height: 70px; }
+  .circle3 { width: 50px; height: 50px; }
+  .sparkle { width: 5px; height: 5px; }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 50vh;
+    padding: 15px 10px;
+  }
+
+  .hero h1 {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .hero h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .hero p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .ctaButton {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  /* Еще больше уменьшаем декоративные элементы */
+  .circle1 { width: 60px; height: 60px; }
+  .circle2 { width: 40px; height: 40px; }
+  .circle3 { width: 30px; height: 30px; }
+}
